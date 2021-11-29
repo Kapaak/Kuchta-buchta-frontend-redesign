@@ -10,13 +10,19 @@ const GlobalStyle = createGlobalStyle`
 }
 
 :root{
-    --first-font:'Open Sans', sans-serif;
-    --second-font:'Nunito', sans-serif;
+    --first-font:'Oswald', sans-serif;
+    --second-font:'Rajdhani', sans-serif;
 
     --first-col:#243D46;
     --second-col:#F0BA58;
     --third-col:#f8f8f8;
     --fourth-col:#FFFCF1;
+
+	--col-1:#363636;
+	--col-2:#FA7268;
+	--col-5:#FDFDFD;
+
+	--shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 	--max-width:142rem;
 }
@@ -30,20 +36,6 @@ body{
     font-size: 1.6rem;
     font-family: var(--second-font);
     color: var(--first-col);
-	background-color: var(--fourth-col);
-}
-
-
-
-
-h1{
-	font-size:3.4rem;
-	margin:2rem 0;
-}
-
-p{
-	letter-spacing:.1rem;
-	line-height:1.4;
 }
 
 	@media ${breakpoints.tablet} {

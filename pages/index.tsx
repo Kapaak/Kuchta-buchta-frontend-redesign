@@ -8,18 +8,13 @@ import Filter from "@/components/filter";
 //context
 import { FilterContext } from "@/components/utils";
 import breakpoints from "@/styles/breakpoints";
+import HeroPage from "@/components/HeroPage";
+import RecipeTypePage from "@/components/RecipeTypePage";
 
 interface Props {
 	recipes: Array<object>;
 	category: Array<string>;
 }
-
-const Container = styled.div`
-	margin: auto;
-	padding: 2rem;
-	max-width: var(--max-width);
-	min-height: 100vh;
-`;
 
 const RecipeList = styled.div`
 	/* display: grid;
@@ -146,7 +141,9 @@ export default function Home({ recipes, category }: Props) {
 	};
 
 	return (
-		<Container>
+		<>
+			<HeroPage />
+			<RecipeTypePage />
 			<h1>Seznam receptů</h1>
 			<FilterContext.Provider value={[optionsHandler]}>
 				<Filter options={category} />
@@ -160,7 +157,7 @@ export default function Home({ recipes, category }: Props) {
 					<>No recipes </>
 				)}
 			</RecipeList>
-		</Container>
+		</>
 	);
 }
 

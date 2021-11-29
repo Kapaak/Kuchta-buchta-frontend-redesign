@@ -1,7 +1,7 @@
 //components
 import Head from "@/components/Head";
-import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 //styles
 import GlobalStyles from "@/styles/GlobalStyles";
 //types
@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Head />
-			<Nav />
+			<Navigation />
 			<GlobalStyles />
 			<Component {...pageProps} />
 			<Footer />
