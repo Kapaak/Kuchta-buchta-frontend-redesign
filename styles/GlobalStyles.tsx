@@ -20,6 +20,8 @@ const GlobalStyle = createGlobalStyle`
 
 	--col-1:#363636;
 	--col-2:#FA7268;
+	--col-3:#B0235F;
+	--col-4:#F8F8F8;
 	--col-5:#FDFDFD;
 
 	--shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

@@ -9,7 +9,7 @@ import Filter from "@/components/filter";
 import { FilterContext } from "@/components/utils";
 import breakpoints from "@/styles/breakpoints";
 import HeroPage from "@/components/HeroPage";
-import RecipeTypePage from "@/components/RecipeTypePage";
+import RecipeOptionsPage from "@/components/RecipeOptionsPage";
 
 interface Props {
 	recipes: Array<object>;
@@ -143,7 +143,7 @@ export default function Home({ recipes, category }: Props) {
 	return (
 		<>
 			<HeroPage />
-			<RecipeTypePage />
+			<RecipeOptionsPage />
 			<h1>Seznam receptů</h1>
 			<FilterContext.Provider value={[optionsHandler]}>
 				<Filter options={category} />
