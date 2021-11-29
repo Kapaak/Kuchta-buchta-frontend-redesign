@@ -3,14 +3,20 @@ import styled from "styled-components";
 //components
 import RecipeOptions from "./RecipeOptions";
 import { Headline, MaxWidth, Section } from "@/styles/customComponents";
+//interfaces
+import { RecipeOpt } from "interfaces";
 
-const RecipeOptionsPage = () => {
+interface Props {
+	recipeOptions: Array<RecipeOpt>;
+}
+
+const RecipeOptionsPage = ({ recipeOptions }: Props) => {
 	return (
 		<SRecipeOptionsPage id="recipe-type-page">
 			{/* <SLine></SLine> */}
 			<MaxWidth>
 				<Headline>Jaké recepty hledáte?</Headline>
-				<RecipeOptions />
+				<RecipeOptions recipeOptions={recipeOptions} />
 			</MaxWidth>
 		</SRecipeOptionsPage>
 	);

@@ -10,10 +10,14 @@ import { FilterContext } from "@/components/utils";
 import breakpoints from "@/styles/breakpoints";
 import HeroPage from "@/components/HeroPage";
 import RecipeOptionsPage from "@/components/RecipeOptionsPage";
+import { client } from "sanity";
+//interfaces
+import { RecipeOpt } from "interfaces";
 
 interface Props {
 	recipes: Array<object>;
 	category: Array<string>;
+	recipeOptions: Array<RecipeOpt>;
 }
 
 const RecipeList = styled.div`
@@ -65,7 +69,7 @@ const Recipe = styled.div`
 	}
 `;
 
-export default function Home({ recipes, category }: Props) {
+export default function Home({ recipes, category, recipeOptions }: Props) {
 	const [mappedRecipes, setMappedRecipes] = useState<Array<object>>([]);
 	const [activeFilters, setActiveFilters] = useState<Array<string>>([]);
 	const { PROJECT_ID } = process.env;
@@ -143,7 +147,9 @@ export default function Home({ recipes, category }: Props) {
 	return (
 		<>
 			<HeroPage />
-			<RecipeOptionsPage />
+			<RecipeOptionsPage recipeOptions={recipeOptions} />
+
+			{/* old code */}
 			<h1>Seznam receptů</h1>
 			<FilterContext.Provider value={[optionsHandler]}>
 				<Filter options={category} />
@@ -162,22 +168,30 @@ export default function Home({ recipes, category }: Props) {
 }
 
 export const getServerSideProps = async (pageContext: any) => {
-	const query = encodeURIComponent(
-		`*[ _type == "post" ]{category[]->{title},body,slug,mainImage,title}`
-	);
-	const url = `https://${process.env.PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${query}`;
-	const result = await fetch(url).then(res => res.json());
+	const queryRecipes = `*[ _type == "post" ]{category[]->{title},body,slug,mainImage,title}`;
+	const queryRecipeOptions = `*[_type == "recipeOption"]`;
+
+	const allRecipes = await client.fetch(queryRecipes);
+
+	const recipeOptions = await client.fetch(queryRecipeOptions);
 
 	//creating array for categories used in each element
-	const categories = result.result.map((category: any) =>
+	const categories = allRecipes.map((category: any) =>
 		category.category.map((el: any) => el.title)
+	);
+
+	//flattening the output of recipeOptions array
+	const recipeOptionsFlattened: { img: any; name: any }[] = [];
+
+	recipeOptions.map((el: any) =>
+		recipeOptionsFlattened.push({ img: el.title.img, name: el.title.name })
 	);
 
 	//turning multiple arrays into 1 + removing duplicates
 	//@ts-ignore
 	const flattenCategories = [...new Set(categories.flat())];
 
-	if (!result.result || !result.result.length) {
+	if (!allRecipes || !allRecipes.length) {
 		return {
 			props: {
 				recipes: [],
@@ -187,8 +201,9 @@ export const getServerSideProps = async (pageContext: any) => {
 	} else {
 		return {
 			props: {
-				recipes: result.result,
+				recipes: allRecipes,
 				category: flattenCategories,
+				recipeOptions: recipeOptionsFlattened,
 			},
 		};
 	}

@@ -2,18 +2,23 @@
 import styled from "styled-components";
 //components
 import RecipeOption from "./RecipeOption";
+//interfaces
+import { RecipeOpt } from "interfaces";
 
-const RecipeOptions = () => {
+interface Props {
+	recipeOptions: Array<RecipeOpt>;
+}
+
+const RecipeOptions = ({ recipeOptions }: Props) => {
 	const recipeOpt = {
 		name: "snídaně",
 		img: "/images/meal1.jpg",
 	};
 	return (
 		<SRecipeTypes>
-			<RecipeOption recipeOpt={recipeOpt} />
-			<RecipeOption recipeOpt={recipeOpt} />
-			<RecipeOption recipeOpt={recipeOpt} />
-			<RecipeOption recipeOpt={recipeOpt} />
+			{recipeOptions?.map((recipe: RecipeOpt, index: number) => (
+				<RecipeOption key={index} recipeOpt={recipe} />
+			))}
 		</SRecipeTypes>
 	);
 };

@@ -1,5 +1,6 @@
 //libraries
 import styled from "styled-components";
+import { urlFor } from "sanity";
 //interfaces
 import { RecipeOpt } from "../../interfaces";
 
@@ -10,7 +11,8 @@ interface Props {
 const RecipeOption = ({ recipeOpt }: Props) => {
 	return (
 		<StyledItem>
-			<img src={recipeOpt.img} alt="" />
+			{/*@ts-ignore*/}
+			<img src={urlFor(recipeOpt.img).url()} alt={recipeOpt.name} />
 			<h3>{recipeOpt.name}</h3>
 		</StyledItem>
 	);
