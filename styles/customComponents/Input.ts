@@ -18,4 +18,8 @@ export const Input = styled.input`
 		background-position-x: 0.3rem;
 		background-position-y: 50%;
 	}
+
+	&::-webkit-search-cancel-button {
+		color: var(--col-1);
+	}
 `;
