@@ -4,3 +4,5 @@ export { MainSubHeadline } from "./MainSubHeadline";
 export { MaxWidth } from "./MaxWidth";
 export { FlexWrapper } from "./FlexWrapper";
 export { Headline } from "./Headline";
+export { Input } from "./Input";
+export { Button } from "./Button";

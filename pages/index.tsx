@@ -13,6 +13,7 @@ import RecipeOptionsPage from "@/components/RecipeOptionsPage";
 import { client } from "sanity";
 //interfaces
 import { RecipeOpt } from "interfaces";
+import RecipePage from "@/components/RecipePage";
 
 interface Props {
 	recipes: Array<object>;
@@ -148,6 +149,7 @@ export default function Home({ recipes, category, recipeOptions }: Props) {
 		<>
 			<HeroPage />
 			<RecipeOptionsPage recipeOptions={recipeOptions} />
+			<RecipePage />
 
 			{/* old code */}
 			<h1>Seznam receptů</h1>
