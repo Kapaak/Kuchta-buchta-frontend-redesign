@@ -149,7 +149,7 @@ export default function Home({ recipes, category, recipeOptions }: Props) {
 		<>
 			<HeroPage />
 			<RecipeOptionsPage recipeOptions={recipeOptions} />
-			<RecipePage />
+			<RecipePage recipes={recipes} />
 
 			{/* old code */}
 			<h1>Seznam receptů</h1>
