@@ -145,6 +145,8 @@ export default function Home({ recipes, category, recipeOptions }: Props) {
 			return renderComponent(p, index);
 	};
 
+	console.log(recipes, "ress");
+
 	return (
 		<>
 			<HeroPage />
@@ -170,7 +172,7 @@ export default function Home({ recipes, category, recipeOptions }: Props) {
 }
 
 export const getServerSideProps = async (pageContext: any) => {
-	const queryRecipes = `*[ _type == "post" ]{category[]->{title},body,slug,mainImage,title}`;
+	const queryRecipes = `*[ _type == "post" ]{category[]->{title},body,ingredience,slug,mainImage,title}`;
 	const queryRecipeOptions = `*[_type == "recipeOption"]`;
 
 	const allRecipes = await client.fetch(queryRecipes);
