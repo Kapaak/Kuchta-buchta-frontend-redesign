@@ -6,7 +6,11 @@ import imageUrlBuilder from "@sanity/image-url";
 //components
 import Filter from "@/components/filter";
 //context
-import { FilterContext } from "@/components/utils";
+import {
+	FilterContext,
+	getAllCategories,
+	getAllRecipeOptions,
+} from "@/components/utils";
 import breakpoints from "@/styles/breakpoints";
 import HeroPage from "@/components/HeroPage";
 import RecipeOptionsPage from "@/components/RecipeOptionsPage";
@@ -172,28 +176,12 @@ export default function Home({ recipes, category, recipeOptions }: Props) {
 }
 
 export const getServerSideProps = async (pageContext: any) => {
-	const queryRecipes = `*[ _type == "post" ]{category[]->{title},body,ingredience,slug,mainImage,title}`;
+	const queryRecipes = `*[ _type == "post" ]{category[]->{title},body,ingredience[],slug,mainImage,title}`;
 	const queryRecipeOptions = `*[_type == "recipeOption"]`;
 
 	const allRecipes = await client.fetch(queryRecipes);
 
 	const recipeOptions = await client.fetch(queryRecipeOptions);
-
-	//creating array for categories used in each element
-	const categories = allRecipes.map((category: any) =>
-		category.category.map((el: any) => el.title)
-	);
-
-	//flattening the output of recipeOptions array
-	const recipeOptionsFlattened: { img: any; name: any }[] = [];
-
-	recipeOptions.map((el: any) =>
-		recipeOptionsFlattened.push({ img: el.title.img, name: el.title.name })
-	);
-
-	//turning multiple arrays into 1 + removing duplicates
-	//@ts-ignore
-	const flattenCategories = [...new Set(categories.flat())];
 
 	if (!allRecipes || !allRecipes.length) {
 		return {
@@ -206,8 +194,8 @@ export const getServerSideProps = async (pageContext: any) => {
 		return {
 			props: {
 				recipes: allRecipes,
-				category: flattenCategories,
-				recipeOptions: recipeOptionsFlattened,
+				category: getAllCategories(allRecipes),
+				recipeOptions: getAllRecipeOptions(recipeOptions),
 			},
 		};
 	}

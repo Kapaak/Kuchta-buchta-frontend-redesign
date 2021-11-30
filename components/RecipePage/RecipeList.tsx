@@ -4,34 +4,19 @@ import { urlFor } from "sanity";
 import styled from "styled-components";
 
 interface Props {
-	recipes: any;
+	recipes: Array<any>;
 }
 
 const RecipeList = ({ recipes }: Props) => {
-	console.log(recipes);
 	return (
 		<SRecipeList>
-			<RecipeItem>
-				{/*@ts-ignore */}
-				<img src={urlFor(recipes[0].mainImage).url()} alt="" />
-				<p>{recipes[0].title}</p>
-			</RecipeItem>
-			<RecipeItem>
-				<img src="/images/meal1.jpg" alt="" />
-				<p>Hovězí bourguignon</p>
-			</RecipeItem>
-			<RecipeItem>
-				<img src="/images/meal1.jpg" alt="" />
-				<p>Hovězí bourguignon</p>
-			</RecipeItem>
-			<RecipeItem>
-				<img src="/images/meal1.jpg" alt="" />
-				<p>Hovězí bourguignon</p>
-			</RecipeItem>
-			<RecipeItem>
-				<img src="/images/meal1.jpg" alt="" />
-				<p>Hovězí bourguignon</p>
-			</RecipeItem>
+			{recipes?.map((r: any, i: number) => (
+				<RecipeItem key={i}>
+					{/*@ts-ignore */}
+					<img src={urlFor(r.mainImage).url()} alt={r.title} />
+					<p>{r.title}</p>
+				</RecipeItem>
+			))}
 		</SRecipeList>
 	);
 };
