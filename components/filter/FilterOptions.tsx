@@ -4,9 +4,8 @@ import styled from "styled-components";
 //components
 import FilterOption from "./FilterOption";
 //interfaces
-import { OptionsInterface } from "../utils/Interface";
 
-const FilterOptions = ({ options }: OptionsInterface) => {
+const FilterOptions = ({ options }: any) => {
 	const [active, setActive] = useState(false);
 	return (
 		<div>
@@ -16,7 +15,7 @@ const FilterOptions = ({ options }: OptionsInterface) => {
 			</StyledButton>
 
 			<StyledFilterWrapper active={active}>
-				{options.map((o, i) => (
+				{options.map((o: any, i: any) => (
 					<FilterOption key={i} option={o} index={i} />
 				))}
 			</StyledFilterWrapper>
