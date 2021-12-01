@@ -1,7 +1,8 @@
-import { RecipeOpt } from "interfaces";
-import React from "react";
-import { urlFor } from "sanity";
+//libraries
 import styled from "styled-components";
+import Link from "next/link";
+//utilities
+import { urlFor } from "sanity";
 
 interface Props {
 	recipes: Array<any>;
@@ -12,9 +13,13 @@ const RecipeList = ({ recipes }: Props) => {
 		<SRecipeList>
 			{recipes?.map((r: any, i: number) => (
 				<RecipeItem key={i}>
-					{/*@ts-ignore */}
-					<img src={urlFor(r.mainImage).url()} alt={r.title} />
-					<p>{r.title}</p>
+					<Link href="/">
+						<a>
+							{/*@ts-ignore */}
+							<img src={urlFor(r.mainImage).url()} alt={r.title} />
+							<p>{r.title}</p>
+						</a>
+					</Link>
 				</RecipeItem>
 			))}
 		</SRecipeList>
@@ -29,11 +34,19 @@ const RecipeItem = styled.div`
 	box-shadow: var(--shadow);
 	background-color: var(--col-5);
 
-	p {
-		padding: 1rem;
-		font-size: var(--t);
-		font-weight: 600;
-		text-align: center;
+	a {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		color: inherit;
+		text-decoration: none;
+
+		p {
+			padding: 1rem;
+			font-size: var(--t);
+			font-weight: 600;
+			text-align: center;
+		}
 	}
 
 	img {

@@ -157,9 +157,8 @@ export default function Home({ recipes, category, recipeOptions }: Props) {
 			<HeroPage />
 			<RecipeOptionsPage recipeOptions={recipeOptions} />
 			<RecipePage recipes={recipes} />
-			<Footer />
 			{/* old code */}
-			<h1>Seznam receptů</h1>
+			{/* <h1>Seznam receptů</h1>
 			<FilterContext.Provider value={[optionsHandler]}>
 				<Filter options={category} />
 			</FilterContext.Provider>
@@ -171,7 +170,7 @@ export default function Home({ recipes, category, recipeOptions }: Props) {
 				) : (
 					<>No recipes </>
 				)}
-			</RecipeList>
+			</RecipeList> */}
 		</>
 	);
 }
