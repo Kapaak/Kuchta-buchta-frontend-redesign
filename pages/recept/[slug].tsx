@@ -7,6 +7,7 @@ import { urlFor } from "../../sanity";
 import { TextContent } from "@/styles/GlobalStyles";
 //breakpoints
 import breakpoints from "@/styles/breakpoints";
+import { Headline } from "@/styles/customComponents";
 
 const StyledImage = styled.img<any>`
 	width: 100%;
@@ -54,14 +55,6 @@ const StyledDescriptionWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-top: 2rem;
-
-	/* p,li{
-		text-decoration: underline;
-    text-decoration-style: dotted;
-    text-underline-offset: 1rem;
-    text-decoration-color: lightgrey;
-}
-	} */
 	h4 {
 		margin: 1rem 0;
 	}
@@ -91,7 +84,7 @@ interface Props {
 const Post = ({ body, title, image, categories, ingredience }: Props) => {
 	return (
 		<StyledText>
-			<h1>{title}</h1>
+			<Headline>{title}</Headline>
 			<StyledHeader>
 				<StyledImage src={urlFor(image)} alt="recipe-image" />
 				<StyledCategories>

@@ -9,11 +9,13 @@ interface Props {
 }
 
 const RecipeList = ({ recipes }: Props) => {
+	console.log(recipes);
+
 	return (
 		<SRecipeList>
 			{recipes?.map((r: any, i: number) => (
 				<RecipeItem key={i}>
-					<Link href="/">
+					<Link href={"/recept/" + r?.slug.current}>
 						<a>
 							{/*@ts-ignore */}
 							<img src={urlFor(r.mainImage).url()} alt={r.title} />
