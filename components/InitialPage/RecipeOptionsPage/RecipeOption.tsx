@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import { urlFor } from "sanity";
 //interfaces
-import { RecipeOpt } from "../../interfaces";
+import { RecipeOpt } from "../../../interfaces";
 
 interface Props {
 	recipeOpt: RecipeOpt;

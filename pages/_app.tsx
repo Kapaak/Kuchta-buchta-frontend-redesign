@@ -1,7 +1,7 @@
 //components
-import Head from "@/components/Head";
-import Footer from "@/components/Footer";
-import Navigation from "@/components/Navigation";
+import Head from "@/components/Shared/Head";
+import Footer from "@/components/Shared/Footer";
+import Navigation from "@/components/Shared/Navigation";
 //styles
 import GlobalStyles from "@/styles/GlobalStyles";
 //types

@@ -12,13 +12,12 @@ import {
 	getAllRecipeOptions,
 } from "@/components/utils";
 import breakpoints from "@/styles/breakpoints";
-import HeroPage from "@/components/HeroPage";
-import RecipeOptionsPage from "@/components/RecipeOptionsPage";
+import HeroPage from "@/components/InitialPage/HeroPage";
+import RecipeOptionsPage from "@/components/InitialPage/RecipeOptionsPage";
 import { client } from "sanity";
 //interfaces
 import { RecipeOpt } from "interfaces";
-import RecipePage from "@/components/RecipePage";
-import Footer from "@/components/Footer";
+import RecipePage from "@/components/InitialPage/RecipePage";
 
 interface Props {
 	recipes: Array<object>;
