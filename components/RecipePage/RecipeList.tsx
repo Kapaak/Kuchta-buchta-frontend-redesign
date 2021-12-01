@@ -31,10 +31,13 @@ const RecipeItem = styled.div`
 
 	p {
 		padding: 1rem;
+		font-size: var(--t);
+		font-weight: 600;
 		text-align: center;
 	}
 
 	img {
+		flex: 1;
 		height: 12rem;
 		width: 100%;
 		object-fit: cover;

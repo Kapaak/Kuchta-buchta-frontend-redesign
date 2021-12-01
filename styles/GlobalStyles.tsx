@@ -24,6 +24,9 @@ const GlobalStyle = createGlobalStyle`
 	--col-4:#F8F8F8;
 	--col-5:#FDFDFD;
 
+	--t: 1.7rem;
+
+
 	--shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 	--max-width:142rem;
