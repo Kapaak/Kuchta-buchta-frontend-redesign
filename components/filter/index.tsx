@@ -1,9 +1,8 @@
 //components
 import FilterOptions from "./FilterOptions";
 //interfaces
-import { OptionsInterface } from "../utils/Interface";
 
-const Filter = ({ options }: OptionsInterface) => {
+const Filter = ({ options }: any) => {
 	return <FilterOptions options={options} />;
 };
 
