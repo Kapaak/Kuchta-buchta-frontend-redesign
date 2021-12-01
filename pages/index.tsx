@@ -18,6 +18,7 @@ import { client } from "sanity";
 //interfaces
 import { RecipeOpt } from "interfaces";
 import RecipePage from "@/components/RecipePage";
+import Footer from "@/components/Footer";
 
 interface Props {
 	recipes: Array<object>;
@@ -156,7 +157,7 @@ export default function Home({ recipes, category, recipeOptions }: Props) {
 			<HeroPage />
 			<RecipeOptionsPage recipeOptions={recipeOptions} />
 			<RecipePage recipes={recipes} />
-
+			<Footer />
 			{/* old code */}
 			<h1>Seznam receptů</h1>
 			<FilterContext.Provider value={[optionsHandler]}>

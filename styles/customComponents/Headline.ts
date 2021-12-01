@@ -5,6 +5,6 @@ export const Headline = styled.h1`
 	font-family: var(--first-font);
 	color: var(--col-3);
 	text-align: center;
-	font-size: 3rem;
+	font-size: var(--h);
 	z-index: 4rem;
 `;

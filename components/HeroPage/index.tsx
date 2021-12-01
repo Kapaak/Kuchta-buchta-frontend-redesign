@@ -17,13 +17,13 @@ const HeroPage = () => {
 		<SHeroPage>
 			<Div100vh>
 				<MaxWidth>
-					<SFlexWrapper>
+					<FlexWrapper align="center" justify="center">
 						<HeadlineWrapper>
 							<SMainHeadline>Kuchta</SMainHeadline>
 							<SMainHeadline>Buchta</SMainHeadline>
 						</HeadlineWrapper>
 						<SMainSubHeadline>jídlo ověřené mlsouny</SMainSubHeadline>
-					</SFlexWrapper>
+					</FlexWrapper>
 					<IconWrapper>
 						<ScrollLink to="recipe-type-page" smooth={true}>
 							<Image src="/icons/circle-icon.svg" width={30} height={30} />
@@ -56,11 +56,6 @@ const SHeroPage = styled(Section)`
 	background-position-x: 55%;
 	background-size: cover;
 	transform: scaleX(-1);
-`;
-
-const SFlexWrapper = styled(FlexWrapper)`
-	justify-content: center;
-	align-items: center;
 `;
 
 const SMainHeadline = styled(MainHeadline)`

@@ -16,8 +16,8 @@ const SHamburger = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	width: 3.8rem;
-	height: 3.7rem;
+	width: 4.1rem;
+	height: 3.9rem;
 	padding: 0.9rem;
 	background-color: var(--col-5);
 	box-shadow: var(--shadow);

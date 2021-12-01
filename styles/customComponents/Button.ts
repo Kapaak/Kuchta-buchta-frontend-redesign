@@ -7,7 +7,7 @@ export const Button = styled.button`
 	padding: 1rem 2rem;
 	border-radius: 0.9rem;
 	box-shadow: var(--shadow);
-	font-size: 1.7rem;
+	font-size: var(--b);
 	font-family: var(--second-font);
 	font-weight: 600;
 	letter-spacing: 0.1rem;
