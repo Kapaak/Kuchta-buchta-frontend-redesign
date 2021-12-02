@@ -13,18 +13,20 @@ const CookingPage = ({ body }: Props) => {
 		<Section>
 			<MaxWidth>
 				<SHeadline>Jak postupovat</SHeadline>
-				<BlockContent
-					blocks={body}
-					serializers={{
-						//@ts-ignore
-						list: (props: any) => {
-							return <ul>{props.children}</ul>;
-						},
-						text: (props: any) => {
-							return <Text>{props.children}</Text>;
-						},
-					}}
-				/>
+				<Text>
+					<BlockContent
+						blocks={body}
+						serializers={{
+							//@ts-ignore
+							list: (props: any) => {
+								return <ul>{props.children}</ul>;
+							},
+							// text: (props: any) => {
+							// 	return <Text>{props.children}</Text>;
+							// },
+						}}
+					/>
+				</Text>
 			</MaxWidth>
 		</Section>
 	);

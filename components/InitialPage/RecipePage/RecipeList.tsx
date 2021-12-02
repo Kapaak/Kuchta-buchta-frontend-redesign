@@ -1,6 +1,7 @@
 //libraries
 import styled from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
 //utilities
 import { urlFor } from "sanity";
 
@@ -9,16 +10,18 @@ interface Props {
 }
 
 const RecipeList = ({ recipes }: Props) => {
-	console.log(recipes);
-
 	return (
 		<SRecipeList>
 			{recipes?.map((r: any, i: number) => (
 				<RecipeItem key={i}>
 					<Link href={"/recept/" + r?.slug.current}>
 						<a>
-							{/*@ts-ignore */}
-							<img src={urlFor(r.mainImage).url()} alt={r.title} />
+							<Image
+								src={urlFor(r.mainImage).url() as string}
+								alt={r.title}
+								width={50}
+								height={80}
+							/>
 							<p>{r.title}</p>
 						</a>
 					</Link>
@@ -49,6 +52,10 @@ const RecipeItem = styled.div`
 			font-weight: 600;
 			text-align: center;
 		}
+	}
+
+	span {
+		flex: 1;
 	}
 
 	img {

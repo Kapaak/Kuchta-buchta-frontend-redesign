@@ -3,6 +3,7 @@ import { client } from "../../sanity";
 //components
 import HeroPage from "@/components/RecipePage/HeroPage";
 import CookingPage from "@/components/RecipePage/CookingPage";
+import TeleportBack from "@/components/RecipePage/TeleportBack";
 
 interface Props {
 	body: Array<object>;
@@ -17,6 +18,7 @@ const Post = ({ body, title, image, categories, ingredience }: Props) => {
 		<>
 			<HeroPage title={title} image={image} ingredience={ingredience} />
 			<CookingPage body={body} />
+			<TeleportBack />
 		</>
 	);
 };
