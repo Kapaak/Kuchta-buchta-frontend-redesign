@@ -1,5 +1,6 @@
 //libraries
 import styled from "styled-components";
+import Image from "next/image";
 import { urlFor } from "sanity";
 //interfaces
 import { RecipeOpt } from "../../../interfaces";
@@ -11,8 +12,11 @@ interface Props {
 const RecipeOption = ({ recipeOpt }: Props) => {
 	return (
 		<StyledItem>
-			{/*@ts-ignore*/}
-			<img src={urlFor(recipeOpt.img).url()} alt={recipeOpt.name} />
+			<Image
+				src={urlFor(recipeOpt.img).url() as string}
+				alt={recipeOpt.name}
+				layout="fill"
+			/>
 			<h3>{recipeOpt.name}</h3>
 		</StyledItem>
 	);
@@ -36,6 +40,7 @@ const StyledItem = styled.div`
 		background-color: var(--col-1);
 		border-radius: inherit;
 		opacity: 0.6;
+		z-index: 1;
 	}
 
 	h3 {
@@ -46,6 +51,11 @@ const StyledItem = styled.div`
 		color: var(--col-5);
 		font-size: 3rem;
 		font-weight: 500;
+		z-index: 2;
+	}
+
+	& > span {
+		border-radius: inherit;
 	}
 
 	img {
