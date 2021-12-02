@@ -2,6 +2,6 @@ import styled from "styled-components";
 
 export const MaxWidth = styled.div`
 	max-width: var(--max-width);
-	padding: 1rem;
+	padding: 2rem;
 	height: 100%;
 `;
