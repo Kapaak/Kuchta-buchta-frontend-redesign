@@ -6,3 +6,4 @@ export { FlexWrapper } from "./FlexWrapper";
 export { Headline } from "./Headline";
 export { Input } from "./Input";
 export { Button } from "./Button";
+export { Text } from "./Text";

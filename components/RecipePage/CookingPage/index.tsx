@@ -1,7 +1,8 @@
 //libraries
 import BlockContent from "@sanity/block-content-to-react";
+import styled from "styled-components";
 //components
-import { MaxWidth, Section } from "@/styles/customComponents";
+import { Headline, MaxWidth, Section, Text } from "@/styles/customComponents";
 
 interface Props {
 	body: Array<object>;
@@ -11,7 +12,7 @@ const CookingPage = ({ body }: Props) => {
 	return (
 		<Section>
 			<MaxWidth>
-				<h2>Jak postupovat</h2>
+				<SHeadline>Jak postupovat</SHeadline>
 				<BlockContent
 					blocks={body}
 					serializers={{
@@ -19,11 +20,21 @@ const CookingPage = ({ body }: Props) => {
 						list: (props: any) => {
 							return <ul>{props.children}</ul>;
 						},
+						text: (props: any) => {
+							return <Text>{props.children}</Text>;
+						},
 					}}
 				/>
 			</MaxWidth>
 		</Section>
 	);
 };
+
+const SHeadline = styled(Headline)`
+	color: var(--col-1);
+	text-align: left;
+	font-family: var(--second-font);
+	margin: 2rem 0;
+`;
 
 export default CookingPage;

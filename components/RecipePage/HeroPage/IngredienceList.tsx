@@ -29,10 +29,11 @@ const SHeadline = styled(Headline)`
 	color: var(--col-1);
 	text-align: left;
 	font-family: var(--second-font);
+	margin: 2rem 0;
 `;
 
 const SIngredienceList = styled.ul`
-	/* margin-left: 1rem; */
+	margin: 2rem;
 	h1 {
 		color: var(--col-2);
 		font-weight: 600;
@@ -42,6 +43,7 @@ const SIngredienceList = styled.ul`
 
 const Ingredience = styled.li`
 	list-style-type: none;
+	line-height: 1.6;
 	label {
 		font-size: var(--t);
 		margin-left: 1rem;

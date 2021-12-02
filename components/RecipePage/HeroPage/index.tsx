@@ -21,7 +21,7 @@ const HeroPage = ({ title, image, ingredience }: Props) => {
 	return (
 		<Section style={{ minHeight: "100vh", background: "var(--col-4)" }}>
 			<MaxWidth>
-				<Headline>{title}</Headline>
+				<SHeadline align="left">{title}</SHeadline>
 				<StyledImage src={urlFor(image)} alt="recipe-image" />
 				<FlexWrapper>
 					<IngredienceList ingredience={ingredience} />
@@ -30,6 +30,10 @@ const HeroPage = ({ title, image, ingredience }: Props) => {
 		</Section>
 	);
 };
+
+const SHeadline = styled(Headline)`
+	margin: 2rem 0;
+`;
 
 const StyledImage = styled.img<any>`
 	width: 100%;
