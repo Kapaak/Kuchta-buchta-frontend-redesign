@@ -35,6 +35,7 @@ const RecipeItem = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex: 1 1 35%;
+	max-width: 47%;
 	border-radius: 1rem;
 	box-shadow: var(--shadow);
 	background-color: var(--col-5);
