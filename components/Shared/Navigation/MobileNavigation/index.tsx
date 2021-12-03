@@ -1,24 +1,34 @@
 //libraries
 import Div100vh from "react-div-100vh";
 import styled from "styled-components";
+import { Link as ScrollLink, scroller } from "react-scroll";
 import Link from "next/link";
-import { Link as ScrollLink } from "react-scroll";
+import { useRouter } from "next/router";
 //components
-import { MaxWidth, Section } from "@/styles/customComponents";
-import { useState } from "react";
+import { FlexWrapper, MaxWidth, Section } from "@/styles/customComponents";
 
 const MobileNavigation = ({ setActive, active }: any) => {
+	const router = useRouter();
+
+	const scrollTarget = (target: string) =>
+		scroller.scrollTo(target, { smooth: true, duration: 700 });
+
+	const scrollToPage = async (target: string) => {
+		if (router.pathname !== "/") await router.push("/");
+		setActive(false);
+		scrollTarget(target);
+	};
+
 	return (
 		<SMobileNavigation active={active}>
 			<Div100vh>
 				<MaxWidth>
-					<ScrollLink
-						to="recipe-type-page"
-						smooth={true}
-						onClick={() => setActive(false)}
-					>
-						<p>Pepega</p>
-					</ScrollLink>
+					<FlexWrapper align="flex-end" justify="center">
+						<LinkItem onClick={() => scrollToPage("home-page")}>Domů</LinkItem>
+						<LinkItem onClick={() => scrollToPage("recipe-type-page")}>
+							Recepty
+						</LinkItem>
+					</FlexWrapper>
 				</MaxWidth>
 			</Div100vh>
 			;
@@ -37,6 +47,12 @@ const SMobileNavigation = styled(Section)<{ active: boolean }>`
 	overflow: hidden;
 	z-index: 9;
 	transition: all 0.5s ease;
+`;
+
+const LinkItem = styled.div`
+	color: var(--col-3);
+	font-weight: 600;
+	font-size: var(--h);
 `;
 
 export default MobileNavigation;

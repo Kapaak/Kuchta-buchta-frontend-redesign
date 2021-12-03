@@ -14,7 +14,7 @@ import {
 
 const HeroPage = () => {
 	return (
-		<SHeroPage>
+		<SHeroPage id="home-page">
 			<Div100vh>
 				<MaxWidth>
 					<FlexWrapper align="center" justify="center">
