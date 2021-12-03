@@ -16,6 +16,7 @@ interface Props {
 
 const RecipePage = ({ recipes }: Props) => {
 	const [filteredRecipes, setFilteredRecipes] = useState(recipes);
+	const [redirectPage, setRedirectPage] = useState("");
 
 	const handleRecipeFilter = (str: string) => {
 		const cleanStr = removeDiacriticsAndCase(str);
@@ -24,6 +25,7 @@ const RecipePage = ({ recipes }: Props) => {
 			return removeDiacriticsAndCase(value.title).includes(cleanStr);
 		});
 
+		setRedirectPage(filterArray[0].slug.current);
 		setFilteredRecipes(filterArray);
 	};
 
@@ -32,7 +34,10 @@ const RecipePage = ({ recipes }: Props) => {
 			<MaxWidth>
 				<FlexWrapper>
 					<HeaderFilter />
-					<Form handleRecipeFilter={handleRecipeFilter} />
+					<Form
+						handleRecipeFilter={handleRecipeFilter}
+						redirectPage={redirectPage}
+					/>
 				</FlexWrapper>
 				<RecipeList recipes={filteredRecipes} />
 			</MaxWidth>

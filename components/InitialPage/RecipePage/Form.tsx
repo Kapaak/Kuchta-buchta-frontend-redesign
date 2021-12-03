@@ -1,12 +1,19 @@
 //libraries
 import styled from "styled-components";
+import { useRouter } from "next/router";
 //components
 import { Button, Input } from "@/styles/customComponents";
 
-const Form = ({ handleRecipeFilter }: any) => {
+interface Props {
+	redirectPage: string;
+	handleRecipeFilter: (str: string) => void;
+}
+
+const Form = ({ handleRecipeFilter, redirectPage }: Props) => {
+	const router = useRouter();
 	//tady bude neco ve stylu onSubmit router push a slug od toho elementu, musim to udelat o uroven vys
 	return (
-		<SForm>
+		<SForm onSubmit={() => router.push(`/recept/${redirectPage}`)}>
 			<Input
 				type="search"
 				placeholder="najdi recept podle názvu"
