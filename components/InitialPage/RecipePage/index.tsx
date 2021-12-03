@@ -1,7 +1,7 @@
 //libraries
 import styled from "styled-components";
 //libraries
-import { useState } from "react";
+import { useEffect, useState } from "react";
 //components
 import { FlexWrapper, MaxWidth, Section } from "@/styles/customComponents";
 import Form from "./Form";

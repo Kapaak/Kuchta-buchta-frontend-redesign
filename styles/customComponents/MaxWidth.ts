@@ -4,4 +4,5 @@ export const MaxWidth = styled.div`
 	max-width: var(--max-width);
 	padding: 1rem;
 	height: 100%;
+	margin: 0 auto;
 `;

@@ -4,14 +4,23 @@ import Image from "next/image";
 import { urlFor } from "sanity";
 //interfaces
 import { RecipeOpt } from "../../../interfaces";
+import { removeDiacriticsAndCase } from "@/components/utils";
 
 interface Props {
 	recipeOpt: RecipeOpt;
+	setRecipeOption: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const RecipeOption = ({ recipeOpt }: Props) => {
+const RecipeOption = ({ recipeOpt, setRecipeOption }: Props) => {
 	return (
-		<StyledItem>
+		<StyledItem
+			onClick={() =>
+				setRecipeOption((prev: string) => {
+					if (prev === removeDiacriticsAndCase(recipeOpt.name)) return "all";
+					else return removeDiacriticsAndCase(recipeOpt.name);
+				})
+			}
+		>
 			<Image
 				src={urlFor(recipeOpt.img).url() as string}
 				alt={recipeOpt.name}

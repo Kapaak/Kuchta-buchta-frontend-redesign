@@ -8,15 +8,19 @@ import { RecipeOpt } from "interfaces";
 
 interface Props {
 	recipeOptions: Array<RecipeOpt>;
+	setRecipeOption: any;
 }
 
-const RecipeOptionsPage = ({ recipeOptions }: Props) => {
+const RecipeOptionsPage = ({ recipeOptions, setRecipeOption }: Props) => {
 	return (
 		<SRecipeOptionsPage id="recipe-type-page">
 			{/* <SLine></SLine> */}
 			<MaxWidth>
 				<Headline>Jaké recepty hledáte?</Headline>
-				<RecipeOptions recipeOptions={recipeOptions} />
+				<RecipeOptions
+					recipeOptions={recipeOptions}
+					setRecipeOption={setRecipeOption}
+				/>
 			</MaxWidth>
 		</SRecipeOptionsPage>
 	);

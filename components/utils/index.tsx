@@ -6,8 +6,9 @@ export const FilterContext = createContext<any>([]);
 export const getAllCategories = (recipes: Array<any>) => {
 	//creating array for categories used in each element
 	const categories = recipes.map((category: any) =>
-		category.category.map((el: any) => el.title)
+		category.category.map((el: any) => el?.title)
 	);
+
 	//turning multiple arrays into 1 + removing duplicates
 	//@ts-ignore
 	return [...new Set(categories.flat())];
