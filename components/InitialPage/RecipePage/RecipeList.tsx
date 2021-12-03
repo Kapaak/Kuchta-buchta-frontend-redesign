@@ -19,9 +19,8 @@ const RecipeList = ({ recipes }: Props) => {
 							<Image
 								src={urlFor(r.mainImage).url() as string}
 								alt={r.title}
-								width={50}
+								width={100}
 								height={80}
-								quality={100}
 								objectFit="cover"
 							/>
 							<p>{r.title}</p>
