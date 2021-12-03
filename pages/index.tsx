@@ -176,7 +176,7 @@ export default function Home({ recipes, category, recipeOptions }: Props) {
 
 export const getServerSideProps = async (pageContext: any) => {
 	const queryRecipes = `*[ _type == "post" ]{category[]->{title},body,ingredience[],slug,mainImage,title}`;
-	const queryRecipeOptions = `*[_type == "recipeOption"]`;
+	const queryRecipeOptions = `*[_type == "recipeOption"] | order(_createdAt desc)`;
 
 	const allRecipes = await client.fetch(queryRecipes);
 

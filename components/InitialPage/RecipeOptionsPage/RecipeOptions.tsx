@@ -10,10 +10,6 @@ interface Props {
 }
 
 const RecipeOptions = ({ recipeOptions }: Props) => {
-	const recipeOpt = {
-		name: "snídaně",
-		img: "/images/meal1.jpg",
-	};
 	return (
 		<SRecipeTypes>
 			{recipeOptions?.map((recipe: RecipeOpt, index: number) => (
@@ -27,7 +23,7 @@ const SRecipeTypes = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	gap: 2rem;
+	gap: 1rem;
 `;
 
 export default RecipeOptions;

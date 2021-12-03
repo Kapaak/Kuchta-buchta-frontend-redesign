@@ -24,10 +24,10 @@ const RecipeOption = ({ recipeOpt }: Props) => {
 
 const StyledItem = styled.div`
 	position: relative;
-	flex: 1 1 40%;
+	flex: 1 1 29%;
 	width: 15rem;
-	height: 15rem;
-	border-radius: 2rem;
+	height: 12rem;
+	border-radius: 1rem;
 	box-shadow: var(--shadow);
 
 	&::before {
@@ -49,9 +49,10 @@ const StyledItem = styled.div`
 		left: 50%;
 		transform: translate(-50%, -50%);
 		color: var(--col-5);
-		font-size: 3rem;
+		font-size: 2.5rem;
 		font-weight: 500;
 		z-index: 2;
+		text-transform: lowercase;
 	}
 
 	& > span {
