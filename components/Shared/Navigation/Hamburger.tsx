@@ -1,9 +1,9 @@
 //libraries
 import styled from "styled-components";
 
-const Hamburger = () => {
+const Hamburger = ({ setActive }: any) => {
 	return (
-		<SHamburger>
+		<SHamburger onClick={() => setActive((prev: boolean) => !prev)}>
 			<p></p>
 			<p></p>
 			<p></p>
@@ -24,6 +24,7 @@ const SHamburger = styled.div`
 	border-radius: 0.7rem;
 	margin-left: auto;
 	cursor: pointer;
+	z-index: 10;
 
 	p {
 		width: 100%;

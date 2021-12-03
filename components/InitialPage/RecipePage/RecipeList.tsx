@@ -21,6 +21,8 @@ const RecipeList = ({ recipes }: Props) => {
 								alt={r.title}
 								width={50}
 								height={80}
+								quality={100}
+								objectFit="cover"
 							/>
 							<p>{r.title}</p>
 						</a>
@@ -60,10 +62,6 @@ const RecipeItem = styled.div`
 	}
 
 	img {
-		flex: 1;
-		height: 12rem;
-		width: 100%;
-		object-fit: cover;
 		border-radius: 1rem 1rem 0 0;
 	}
 `;

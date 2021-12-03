@@ -13,7 +13,7 @@ const CookingPage = ({ body }: Props) => {
 		<Section>
 			<MaxWidth>
 				<SHeadline>Jak postupovat</SHeadline>
-				<Text>
+				<SText>
 					<BlockContent
 						blocks={body}
 						serializers={{
@@ -26,7 +26,7 @@ const CookingPage = ({ body }: Props) => {
 							// },
 						}}
 					/>
-				</Text>
+				</SText>
 			</MaxWidth>
 		</Section>
 	);
@@ -37,6 +37,10 @@ const SHeadline = styled(Headline)`
 	text-align: left;
 	font-family: var(--second-font);
 	margin: 2rem 0;
+`;
+
+const SText = styled(Text)`
+	margin: 0 1rem;
 `;
 
 export default CookingPage;

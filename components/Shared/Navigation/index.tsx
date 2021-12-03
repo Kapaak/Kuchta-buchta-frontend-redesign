@@ -1,11 +1,16 @@
+//libraries
+import { useState } from "react";
 //components
 import styled from "styled-components";
 import Hamburger from "./Hamburger";
+import MobileNavigation from "./MobileNavigation";
 
 const Navigation = () => {
+	const [active, setActive] = useState(false);
 	return (
 		<StyledNavigation>
-			<Hamburger />
+			<Hamburger setActive={setActive} />
+			<MobileNavigation setActive={setActive} active={active} />
 		</StyledNavigation>
 	);
 };
