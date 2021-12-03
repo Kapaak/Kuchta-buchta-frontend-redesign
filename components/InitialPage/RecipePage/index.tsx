@@ -25,7 +25,7 @@ const RecipePage = ({ recipes }: Props) => {
 			return removeDiacriticsAndCase(value.title).includes(cleanStr);
 		});
 
-		setRedirectPage(filterArray[0].slug.current);
+		setRedirectPage(filterArray[0]?.slug.current);
 		setFilteredRecipes(filterArray);
 	};
 
