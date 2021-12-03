@@ -1,11 +1,10 @@
-import { Button, Input } from "@/styles/customComponents";
-import { useState } from "react";
+//libraries
 import styled from "styled-components";
+//components
+import { Button, Input } from "@/styles/customComponents";
 
 const Form = ({ handleRecipeFilter }: any) => {
-	//reason is to not get list of all suggestions on focus
-	//TODO - dodelej ten datalist, nahazej tam hodnoty ..
-
+	//tady bude neco ve stylu onSubmit router push a slug od toho elementu, musim to udelat o uroven vys
 	return (
 		<SForm>
 			<Input
@@ -21,7 +20,7 @@ const Form = ({ handleRecipeFilter }: any) => {
 
 const SForm = styled.form`
 	display: flex;
-	flex-direction: column; //remove
+	flex-direction: column;
 	width: 100%;
 	gap: 0.6rem;
 `;
