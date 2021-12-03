@@ -14,9 +14,8 @@ const Form = ({ handleRecipeFilter, redirectPage }: Props) => {
 
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
-		router.push(`/recept/${redirectPage}`);
+		redirectPage.length > 0 && router.push(`/recept/${redirectPage}`);
 	};
-	//tady bude neco ve stylu onSubmit router push a slug od toho elementu, musim to udelat o uroven vys
 	return (
 		<SForm onSubmit={e => handleSubmit(e)}>
 			<Input
@@ -24,6 +23,7 @@ const Form = ({ handleRecipeFilter, redirectPage }: Props) => {
 				placeholder="najdi recept podle názvu"
 				onChange={e => handleRecipeFilter(e.target.value)}
 				autoComplete="off"
+				minLength={2}
 			/>
 			<Button>hledej</Button>
 		</SForm>
