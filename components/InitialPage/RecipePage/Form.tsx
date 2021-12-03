@@ -11,9 +11,14 @@ interface Props {
 
 const Form = ({ handleRecipeFilter, redirectPage }: Props) => {
 	const router = useRouter();
+
+	const handleSubmit = (e: any) => {
+		e.preventDefault();
+		router.push(`/recept/${redirectPage}`);
+	};
 	//tady bude neco ve stylu onSubmit router push a slug od toho elementu, musim to udelat o uroven vys
 	return (
-		<SForm onSubmit={() => router.push(`/recept/${redirectPage}`)}>
+		<SForm onSubmit={e => handleSubmit(e)}>
 			<Input
 				type="search"
 				placeholder="najdi recept podle názvu"
