@@ -47,12 +47,21 @@ const SMobileNavigation = styled(Section)<{ active: boolean }>`
 	overflow: hidden;
 	z-index: 9;
 	transition: all 0.5s ease;
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: #ffffff89;
+	}
 `;
 
 const LinkItem = styled.div`
 	color: var(--col-3);
 	font-weight: 600;
 	font-size: var(--h);
+	z-index: 9;
 `;
 
 export default MobileNavigation;
