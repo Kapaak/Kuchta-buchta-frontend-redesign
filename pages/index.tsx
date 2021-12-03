@@ -102,10 +102,10 @@ export default function Home({ recipes, recipeOptions }: Props) {
 	return (
 		<>
 			<HeroPage />
-			{/* <RecipeOptionsPage
+			<RecipeOptionsPage
 				recipeOptions={recipeOptions}
 				setRecipeOption={setRecipeOption}
-			/> */}
+			/>
 			<RecipePage recipes={recipes} />
 		</>
 	);

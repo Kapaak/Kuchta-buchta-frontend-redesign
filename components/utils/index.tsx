@@ -18,7 +18,7 @@ export const getAllRecipeOptions = (recipeOptions: Array<any>) => {
 	//flattening the output of recipeOptions array
 	const recipeOptionsFlattened: { img: any; name: any }[] = [];
 
-	recipeOptions.map((el: any) =>
+	recipeOptions?.map((el: any) =>
 		recipeOptionsFlattened.push({ img: el.title.img, name: el.title.name })
 	);
 
