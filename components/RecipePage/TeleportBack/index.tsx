@@ -7,7 +7,7 @@ import Image from "next/image";
 const TeleportBack = () => {
 	const router = useRouter();
 	return (
-		<Div100vh>
+		<Div100vh style={{ position: "fixed" }}>
 			<STeleportBack onClick={() => router.push("/")}>
 				<Image src="/icons/circle-icon.svg" width={30} height={30} />
 			</STeleportBack>

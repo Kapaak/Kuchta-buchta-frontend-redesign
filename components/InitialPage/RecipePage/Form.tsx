@@ -23,7 +23,6 @@ const Form = ({ handleRecipeFilter, redirectPage }: Props) => {
 				placeholder="najdi recept podle názvu"
 				onChange={e => handleRecipeFilter(e.target.value)}
 				autoComplete="off"
-				minLength={2}
 			/>
 			<Button>hledej</Button>
 		</SForm>
