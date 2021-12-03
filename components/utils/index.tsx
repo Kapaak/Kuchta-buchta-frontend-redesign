@@ -24,4 +24,9 @@ export const getAllRecipeOptions = (recipeOptions: Array<any>) => {
 	return recipeOptionsFlattened;
 };
 
-// export const
+export const removeDiacriticsAndCase = (str: string) => {
+	return str
+		.normalize("NFD")
+		.replace(/[\u0300-\u036f]/g, "")
+		.toLowerCase();
+};
