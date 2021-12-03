@@ -15,7 +15,7 @@ interface Props {
 }
 
 const RecipePage = ({ recipes }: Props) => {
-	const [filteredRecipes, setFilteredRecipes] = useState([]);
+	const [filteredRecipes, setFilteredRecipes] = useState(recipes);
 
 	const handleRecipeFilter = (str: string) => {
 		const cleanStr = removeDiacriticsAndCase(str);
