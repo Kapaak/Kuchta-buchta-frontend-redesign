@@ -2,28 +2,28 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
+import { useContext } from "react";
 //utilities
 import { urlFor } from "sanity";
+import { RecipeContext } from "@/components/utils/index";
 
-interface Props {
-	recipes: Array<any>;
-}
+const RecipeList = () => {
+	const { recipeList } = useContext(RecipeContext);
 
-const RecipeList = ({ recipes }: Props) => {
 	return (
 		<SRecipeList>
-			{recipes?.map((r: any, i: number) => (
+			{recipeList?.map((r: any, i: number) => (
 				<RecipeItem key={i}>
-					<Link href={"/recept/" + r?.slug.current}>
+					<Link href={"/recept/" + r?.slug?.current}>
 						<a>
 							<Image
-								src={urlFor(r.mainImage).url() as string}
-								alt={r.title}
+								src={urlFor(r?.mainImage).url() as string}
+								alt={r?.title}
 								width={100}
 								height={80}
 								objectFit="cover"
 							/>
-							<p>{r.title}</p>
+							<p>{r?.title}</p>
 						</a>
 					</Link>
 				</RecipeItem>

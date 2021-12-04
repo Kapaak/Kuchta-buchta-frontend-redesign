@@ -1,21 +1,23 @@
 //libraries
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { urlFor } from "sanity";
 //interfaces
 import { RecipeOpt } from "../../../interfaces";
-import { removeDiacriticsAndCase } from "@/components/utils";
+import { RecipeContext, removeDiacriticsAndCase } from "@/components/utils";
 
 interface Props {
 	recipeOpt: RecipeOpt;
-	setRecipeOption: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const RecipeOption = ({ recipeOpt, setRecipeOption }: Props) => {
+const RecipeOption = ({ recipeOpt }: Props) => {
+	const { setActiveRecipeType } = useContext(RecipeContext);
+
 	return (
 		<StyledItem
 			onClick={() =>
-				setRecipeOption((prev: string) => {
+				setActiveRecipeType((prev: string) => {
 					if (prev === removeDiacriticsAndCase(recipeOpt.name)) return "all";
 					else return removeDiacriticsAndCase(recipeOpt.name);
 				})

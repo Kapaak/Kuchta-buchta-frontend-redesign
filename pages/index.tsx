@@ -1,9 +1,10 @@
 //libraries
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext, useContext } from "react";
 import {
 	FilterContext,
 	getAllCategories,
 	getAllRecipeOptions,
+	RecipeProvider,
 } from "@/components/utils";
 import HeroPage from "@/components/InitialPage/HeroPage";
 import RecipeOptionsPage from "@/components/InitialPage/RecipeOptionsPage";
@@ -68,45 +69,18 @@ interface Props {
 // 		setActiveFilters(activeFilters.filter((el: string) => el !== option));
 // 	else setActiveFilters([...activeFilters, option]);
 // };
-// const [activeFilters, setActiveFilters] = useState<Array<string>>([]);
+export type RecipeType = {
+	filteredResults?: Array<any>;
+};
+
 export default function Home({ recipes, recipeOptions }: Props) {
-	const [recipeOption, setRecipeOption] = useState("all");
-	const [filteredResults, setFilteredResults] = useState([]);
-
-	// const applyFilter: any = () => {
-	// 	const arr: any[] = [];
-	// 	recipes.map((value: any) => {
-	// 		let shouldReturn = false;
-	// 		value.recipeOpt.map((v: string) => {
-	// 			if (v === recipeOption || recipeOption === "all") shouldReturn = true;
-	// 		});
-	// 		if (shouldReturn) arr.push(value);
-	// 	});
-
-	// 	setFilteredResults(arr);
-	// };
-
-	// const applyFilter: any = () => {
-	// 	const arr: any[] = [];
-	// 	recipes.map((value: any) => {
-	// 		let shouldReturn = false;
-	// 		value.recipeOpt.map((v: string) => {
-	// 			if (v === recipeOption || recipeOption === "all") shouldReturn = true;
-	// 		});
-	// 		if (shouldReturn) arr.push(value);
-	// 	});
-
-	// 	return arr;
-	// };
-
 	return (
 		<>
 			<HeroPage />
-			<RecipeOptionsPage
-				recipeOptions={recipeOptions}
-				setRecipeOption={setRecipeOption}
-			/>
-			<RecipePage recipes={recipes} />
+			<RecipeProvider recipes={recipes}>
+				<RecipeOptionsPage recipeOptions={recipeOptions} />
+				<RecipePage />
+			</RecipeProvider>
 		</>
 	);
 }

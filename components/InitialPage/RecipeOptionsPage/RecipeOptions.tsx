@@ -7,18 +7,13 @@ import { RecipeOpt } from "interfaces";
 
 interface Props {
 	recipeOptions: Array<RecipeOpt>;
-	setRecipeOption: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const RecipeOptions = ({ recipeOptions, setRecipeOption }: Props) => {
+const RecipeOptions = ({ recipeOptions }: Props) => {
 	return (
 		<SRecipeTypes>
 			{recipeOptions?.map((recipe: RecipeOpt, index: number) => (
-				<RecipeOption
-					key={index}
-					recipeOpt={recipe}
-					setRecipeOption={setRecipeOption}
-				/>
+				<RecipeOption key={index} recipeOpt={recipe} />
 			))}
 		</SRecipeTypes>
 	);
