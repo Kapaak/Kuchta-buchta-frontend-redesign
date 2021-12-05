@@ -12,12 +12,20 @@ interface Props {
 const RecipeOptions = ({ recipeOptions }: Props) => {
 	return (
 		<SRecipeTypes>
+			<SLine></SLine>
 			{recipeOptions?.map((recipe: RecipeOpt, index: number) => (
 				<RecipeOption key={index} recipeOpt={recipe} />
 			))}
 		</SRecipeTypes>
 	);
 };
+
+const SLine = styled.div`
+	position: absolute;
+	width: 100%;
+	height: 4rem;
+	background-color: var(--col-2);
+`;
 
 const SRecipeTypes = styled.div`
 	display: flex;
