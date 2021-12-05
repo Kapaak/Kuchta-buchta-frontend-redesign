@@ -12,7 +12,7 @@ interface Props {
 const RecipeOptions = ({ recipeOptions }: Props) => {
 	return (
 		<SRecipeTypes>
-			<SLine></SLine>
+			{/* <SLine></SLine> */}
 			{recipeOptions?.map((recipe: RecipeOpt, index: number) => (
 				<RecipeOption key={index} recipeOpt={recipe} />
 			))}
