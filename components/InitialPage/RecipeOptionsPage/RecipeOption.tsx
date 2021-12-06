@@ -12,10 +12,14 @@ interface Props {
 }
 
 const RecipeOption = ({ recipeOpt }: Props) => {
-	const { setActiveRecipeType } = useContext(RecipeContext);
+	const { activeRecipeType, setActiveRecipeType } = useContext(RecipeContext);
+
+	const isSelected =
+		activeRecipeType === removeDiacriticsAndCase(recipeOpt.name);
 
 	return (
 		<StyledItem
+			isSelected={isSelected}
 			onClick={() =>
 				setActiveRecipeType((prev: string) => {
 					if (prev === removeDiacriticsAndCase(recipeOpt.name)) return "all";
@@ -33,7 +37,7 @@ const RecipeOption = ({ recipeOpt }: Props) => {
 	);
 };
 
-const StyledItem = styled.div`
+const StyledItem = styled.div<{ isSelected: boolean }>`
 	position: relative;
 	flex: 1 1 29%;
 	width: 15rem;
@@ -42,6 +46,7 @@ const StyledItem = styled.div`
 	box-shadow: var(--shadow);
 
 	&::before {
+		display: ${({ isSelected }) => (isSelected ? "none" : "block")};
 		content: "";
 		position: absolute;
 		left: 0;
@@ -55,6 +60,7 @@ const StyledItem = styled.div`
 	}
 
 	h3 {
+		display: ${({ isSelected }) => (isSelected ? "none" : "block")};
 		position: absolute;
 		top: 50%;
 		left: 50%;

@@ -35,12 +35,17 @@ export const removeDiacriticsAndCase = (str: string) => {
 
 export const RecipeProvider = ({ recipes, children }: any) => {
 	const [recipeList, setRecipeList] = useState(recipes);
+	//I have few types of filter (snidane,obed,vecere,polevka,dezert,ostatni,)
+	//to view every category at once use "all"
 	const [activeRecipeType, setActiveRecipeType] = useState("all");
+	//this sets the  typing filter criteria
 	const [filter, setFilter] = useState("");
+	//clicking on filter icon invokes this secondary filter
+	const [secondaryFilter, setSecondaryFilter] = useState();
 	//is used to filter from all selected recipes in the filterArray
 	const [active, setActive] = useState(recipes);
 
-	const applyFilter: any = () => {
+	const showSelectedRecipeTypes: any = () => {
 		const recipesCopy = [...recipes];
 		const arr: any[] = [];
 		recipesCopy.map((value: any) => {
@@ -56,16 +61,42 @@ export const RecipeProvider = ({ recipes, children }: any) => {
 		setActive(arr);
 	};
 
-	const filterArray = active.filter((value: any) => {
+	const filterSearchedRecipes = active.filter((value: any) => {
+		//returns recipes that are passing current search filter
 		return removeDiacriticsAndCase(value.title).includes(filter);
 	});
 
+	const filterSpecialTypes = (arrayOfTypes = []) => {
+		//dostanu array vsech vybranych veci a pak budu porovnavat aktivni
+		//recepty, pokud vsechny veci z tohodle obsahuji
+		if (arrayOfTypes.length === 0) return active;
+
+		const arr = active.filter((val: any) => {
+			let isPassing = true;
+			arrayOfTypes.map((a: string) => {
+				const inc = val.category.includes(a);
+				if (!inc) isPassing = false;
+			});
+
+			return isPassing;
+		});
+
+		return arr;
+	};
+
+	// filterSpecialTypes();
+	// console.log(filterSpecialTypes(secondaryFilter), "filterspecialtypes");
+
 	useEffect(() => {
-		setRecipeList(filterArray);
+		setRecipeList(filterSearchedRecipes);
 	}, [filter]);
 
 	useEffect(() => {
-		applyFilter();
+		setRecipeList(filterSpecialTypes(secondaryFilter));
+	}, [secondaryFilter]);
+
+	useEffect(() => {
+		showSelectedRecipeTypes();
 	}, [activeRecipeType]);
 
 	const value = {
@@ -75,6 +106,8 @@ export const RecipeProvider = ({ recipes, children }: any) => {
 		setActiveRecipeType,
 		filter,
 		setFilter,
+		secondaryFilter,
+		setSecondaryFilter,
 	};
 
 	return (
