@@ -4,6 +4,7 @@ import styled from "styled-components";
 import RecipeOption from "./RecipeOption";
 //interfaces
 import { RecipeOpt } from "interfaces";
+import breakpoints from "@/styles/breakpoints";
 
 interface Props {
 	recipeOptions: Array<RecipeOpt>;
@@ -32,6 +33,10 @@ const SRecipeTypes = styled.div`
 	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 1rem;
+
+	@media ${breakpoints.tablet} {
+		flex-wrap: nowrap;
+	}
 `;
 
 export default RecipeOptions;

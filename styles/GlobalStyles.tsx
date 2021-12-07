@@ -34,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
 	--shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 	--max-width:142rem;
+	--side-margin:1rem;
 }
 
 
@@ -48,39 +49,20 @@ body{
 }
 
 	@media ${breakpoints.tablet} {
-		h1 {
-			font-size: 5rem;
+		:root{
+			--side-margin:4rem;
+			--mh:7.8rem;
 		}
-		h2 {
-			font-size: 3.5rem;
-		}
-		p {
-			line-height: 1.55;
-		}
-		p,
-		li {
-			font-size: 1.9rem;
-			letter-spacing: 0.15rem;
+	}
+	@media ${breakpoints.tabletX} {
+		:root{
+			--side-margin:8rem;
+			--mh:8.4rem;
+			--sh:4rem;
 		}
 	}
 	@media ${breakpoints.desktop} {
-		h1 {
-			font-size: 5.2rem;
-		}
-		h2 {
-			font-size: 3.6rem;
-			margin: 3rem 0;
-		}
-		p,
-		li {
-			font-size: 1.95rem;
-			letter-spacing: 0.1rem;
-			margin-bottom: 1.5rem;
-		}
-
-		p {
-			line-height: 1.7;
-		}
+	
 	}
 `;
 

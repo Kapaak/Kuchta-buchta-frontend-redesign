@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { Button, Input } from "@/styles/customComponents";
 import { useContext, useState } from "react";
 import { RecipeContext } from "@/components/utils";
+import breakpoints from "@/styles/breakpoints";
 
 const Form = () => {
 	const [redirectPage, setRedirectPage] = useState<string>("");
@@ -39,6 +40,10 @@ const SForm = styled.form`
 	flex-direction: column;
 	width: 100%;
 	gap: 0.6rem;
+
+	@media ${breakpoints.tablet} {
+		flex-direction: row;
+	}
 `;
 
 export default Form;

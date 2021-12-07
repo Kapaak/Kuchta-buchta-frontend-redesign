@@ -11,44 +11,60 @@ import {
 	FlexWrapper,
 	MaxWidth,
 } from "@/styles/customComponents";
+import breakpoints from "@/styles/breakpoints";
 
 const HeroPage = () => {
 	return (
 		<SHeroPage id="home-page">
-			<Div100vh>
+			<Div100vh style={{ display: "flex", flexDirection: "column" }}>
 				<MaxWidth>
 					<FlexWrapper align="center" justify="center">
 						<HeadlineWrapper>
-							<SMainHeadline>Kuchta</SMainHeadline>
-							<SMainHeadline>Buchta</SMainHeadline>
+							<MainHeadline>Kuchta</MainHeadline>
+							<MainHeadline>Buchta</MainHeadline>
 						</HeadlineWrapper>
-						<SMainSubHeadline>jídlo ověřené mlsouny</SMainSubHeadline>
+						<MainSubHeadline>jídlo ověřené mlsouny</MainSubHeadline>
 					</FlexWrapper>
+				</MaxWidth>
+				<BottomLine>
 					<IconWrapper>
 						<ScrollLink to="recipe-type-page" smooth={true}>
 							<Image src="/icons/circle-icon.svg" width={30} height={30} />
 						</ScrollLink>
 					</IconWrapper>
-				</MaxWidth>
+				</BottomLine>
 			</Div100vh>
 		</SHeroPage>
 	);
 };
 
-const IconWrapper = styled.div`
-	position: absolute;
-	bottom: 0.6rem;
-	transition: all 0.5s ease;
-	cursor: pointer;
+const BottomLine = styled.div`
+	display: flex;
+	justify-content: flex-start;
+	padding: 1rem;
 
-	&:hover {
-		transform: translateY(10%);
-		transition: all 0.5s ease;
+	@media ${breakpoints.tablet} {
+		background-color: var(--col-4);
 	}
 `;
 
+const IconWrapper = styled.div``;
+
 const HeadlineWrapper = styled.div`
 	margin-top: 7rem;
+
+	@media ${breakpoints.tabletX} {
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: flex-end;
+		width: 100%;
+	}
+
+	@media ${breakpoints.desktopX} {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: flex-start;
+	}
 `;
 
 const SHeroPage = styled(Section)`
@@ -56,14 +72,19 @@ const SHeroPage = styled(Section)`
 	background-position-x: 55%;
 	background-size: cover;
 	transform: scaleX(-1);
-`;
 
-const SMainHeadline = styled(MainHeadline)`
-	transform: scaleX(-1);
-`;
+	div,
+	p,
+	h1,
+	h3,
+	h4,
+	span {
+		transform: scaleX(-1);
+	}
 
-const SMainSubHeadline = styled(MainSubHeadline)`
-	transform: scaleX(-1);
+	@media ${breakpoints.tablet} {
+		background-position-x: 100%;
+	}
 `;
 
 export default HeroPage;

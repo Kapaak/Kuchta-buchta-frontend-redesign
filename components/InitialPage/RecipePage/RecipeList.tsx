@@ -6,6 +6,7 @@ import { useContext } from "react";
 //utilities
 import { urlFor } from "sanity";
 import { RecipeContext } from "@/components/utils/index";
+import breakpoints from "@/styles/breakpoints";
 
 const RecipeList = () => {
 	const { recipeList } = useContext(RecipeContext);
@@ -62,6 +63,10 @@ const RecipeItem = styled.div`
 
 	img {
 		border-radius: 1rem 1rem 0 0;
+	}
+
+	@media ${breakpoints.tablet} {
+		flex: 0 0 30%;
 	}
 `;
 

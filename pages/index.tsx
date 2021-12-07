@@ -19,56 +19,6 @@ interface Props {
 	recipeOptions: Array<RecipeOpt>;
 }
 
-// const renderComponent = (el: any, i: number) => {
-// 	return (
-// 		<Recipe key={i}>
-// 			<Link href={`/post/${el.slug.current}`}>
-// 				<a>
-// 					<img src={el.mainImage} />
-// 					<h3>{el.title}</h3>
-// 				</a>
-// 			</Link>
-// 		</Recipe>
-// 	);
-// };
-
-// const filteredData = (p: any, index: number) => {
-// 	if (activeFilters.length === 0) return renderComponent(p, index);
-
-// 	const targetRecipes = p.category.map((el: any) => el.title);
-// 	targetRecipes.sort();
-// 	const sortedActiveFilters = [...activeFilters].sort();
-
-// 	const compareArr = (a: any, b: any) => {
-// 		for (var i = 0; i < a.length; ++i) {
-// 			if (a[i] !== b[i]) return false;
-// 		}
-// 		return true;
-// 	};
-
-// 	const compareArrSmaller = (a: any, b: any) => {
-// 		const helper: any = [];
-
-// 		b.map((el: any) => {
-// 			if (a.find((o: any) => o === el)) helper.push(1);
-// 		});
-// 		if (helper.length === b.length) return true;
-// 	};
-
-// 	if (
-// 		sortedActiveFilters.length < targetRecipes.length &&
-// 		compareArrSmaller(targetRecipes, sortedActiveFilters)
-// 	)
-// 		return renderComponent(p, index);
-
-// 	if (compareArr(sortedActiveFilters, targetRecipes))
-// 		return renderComponent(p, index);
-// };
-// const optionsHandler = (option: string) => {
-// 	if (activeFilters.find(o => o === option))
-// 		setActiveFilters(activeFilters.filter((el: string) => el !== option));
-// 	else setActiveFilters([...activeFilters, option]);
-// };
 export type RecipeType = {
 	filteredResults?: Array<any>;
 };
