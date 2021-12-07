@@ -36,8 +36,8 @@ const RecipeList = () => {
 const RecipeItem = styled.div`
 	display: flex;
 	flex-direction: column;
-	flex: 1 1 35%;
-	max-width: 47%;
+	/* flex: 1 1 35%; */
+	/* max-width: 47%; */
 	border-radius: 1rem;
 	box-shadow: var(--shadow);
 	background-color: var(--col-5);
@@ -71,11 +71,21 @@ const RecipeItem = styled.div`
 `;
 
 const SRecipeList = styled.div`
-	display: flex;
-	flex-wrap: wrap;
+	/* display: flex; */
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	/* flex-wrap: wrap; */
 	gap: 2rem;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
+
+	@media ${breakpoints.tablet} {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	@media ${breakpoints.desktop} {
+		grid-template-columns: repeat(5, 1fr);
+	}
 `;
 
 export default RecipeList;
