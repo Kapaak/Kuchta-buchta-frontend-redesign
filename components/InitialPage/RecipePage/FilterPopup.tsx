@@ -71,6 +71,7 @@ const FilterPopup = ({ active }: Props) => {
 
 const SFilterPopup = styled.div<{ active: boolean }>`
 	position: absolute;
+	display: flex;
 	display: ${({ active }) => (active ? "flex" : "none")};
 	flex-direction: column;
 	gap: 1rem;

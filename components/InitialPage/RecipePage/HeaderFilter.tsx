@@ -29,8 +29,8 @@ const HeaderFilter = () => {
 			<Headline>{recipeTypeWithDiacritics()}</Headline>
 			<IconWrapper onClick={() => setActive(prev => !prev)}>
 				<img src="/icons/filter-icon.svg" alt="filter icon" />
-				<FilterPopup active={active} />
 			</IconWrapper>
+			<FilterPopup active={active} />
 		</FlexElement>
 	);
 };
