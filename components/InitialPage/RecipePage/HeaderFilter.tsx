@@ -25,6 +25,7 @@ const HeaderFilter = () => {
 
 	return (
 		<FlexElement>
+			<Overlay active={active} onClick={() => setActive(false)} />
 			<Headline>{recipeTypeWithDiacritics()}</Headline>
 			<IconWrapper onClick={() => setActive(prev => !prev)}>
 				<img src="/icons/filter-icon.svg" alt="filter icon" />
@@ -33,6 +34,17 @@ const HeaderFilter = () => {
 		</FlexElement>
 	);
 };
+
+const Overlay = styled.div<{ active: boolean }>`
+	display: ${({ active }) => (active ? "block" : "none")};
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100vh;
+	height: 100vh;
+	z-index: 9;
+`;
 
 const IconWrapper = styled.div`
 	position: relative;
