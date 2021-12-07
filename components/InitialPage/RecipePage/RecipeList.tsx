@@ -20,9 +20,8 @@ const RecipeList = () => {
 							<Image
 								src={urlFor(r?.mainImage).url() as string}
 								alt={r?.title}
-								width={100}
-								height={80}
 								objectFit="cover"
+								layout="fill"
 							/>
 							<p>{r?.title}</p>
 						</a>
@@ -36,8 +35,7 @@ const RecipeList = () => {
 const RecipeItem = styled.div`
 	display: flex;
 	flex-direction: column;
-	/* flex: 1 1 35%; */
-	/* max-width: 47%; */
+	height: 16rem;
 	border-radius: 1rem;
 	box-shadow: var(--shadow);
 	background-color: var(--col-5);
@@ -58,6 +56,7 @@ const RecipeItem = styled.div`
 	}
 
 	span {
+		position: relative !important;
 		flex: 1;
 	}
 
@@ -75,10 +74,8 @@ const RecipeItem = styled.div`
 `;
 
 const SRecipeList = styled.div`
-	/* display: flex; */
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	/* flex-wrap: wrap; */
 	gap: 2rem;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
