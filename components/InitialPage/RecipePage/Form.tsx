@@ -44,6 +44,11 @@ const SForm = styled.form`
 	@media ${breakpoints.tablet} {
 		flex-direction: row;
 	}
+
+	@media ${breakpoints.desktopX} {
+		width: 50%;
+		margin-left: auto;
+	}
 `;
 
 export default Form;

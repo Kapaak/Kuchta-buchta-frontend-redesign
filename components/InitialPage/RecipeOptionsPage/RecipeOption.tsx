@@ -6,6 +6,7 @@ import { urlFor } from "sanity";
 //interfaces
 import { RecipeOpt } from "../../../interfaces";
 import { RecipeContext, removeDiacriticsAndCase } from "@/components/utils";
+import breakpoints from "@/styles/breakpoints";
 
 interface Props {
 	recipeOpt: RecipeOpt;
@@ -44,6 +45,7 @@ const StyledItem = styled.div<{ isSelected: boolean }>`
 	height: 12rem;
 	border-radius: 1rem;
 	box-shadow: var(--shadow);
+	cursor: pointer;
 
 	&::before {
 		display: ${({ isSelected }) => (isSelected ? "none" : "block")};
@@ -57,6 +59,7 @@ const StyledItem = styled.div<{ isSelected: boolean }>`
 		border-radius: inherit;
 		opacity: 0.6;
 		z-index: 1;
+		transition: all 0.3s ease;
 	}
 
 	h3 {
@@ -81,6 +84,19 @@ const StyledItem = styled.div<{ isSelected: boolean }>`
 		height: 100%;
 		object-fit: cover;
 		border-radius: inherit;
+	}
+
+	&:hover::before {
+		opacity: 0.8;
+		transition: all 0.5s ease;
+	}
+
+	@media ${breakpoints.desktopX} {
+		height: 19rem;
+
+		h3 {
+			font-size: 2.8rem;
+		}
 	}
 `;
 

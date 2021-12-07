@@ -53,9 +53,14 @@ const IconWrapper = styled.div`
 	padding: 0.8rem;
 	border-radius: 0.5rem;
 	box-shadow: var(--shadow);
+	cursor: pointer;
 
 	img {
 		width: 1.5rem;
+	}
+
+	&:active {
+		transform: scale(1.1);
 	}
 `;
 

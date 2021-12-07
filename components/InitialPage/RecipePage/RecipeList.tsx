@@ -68,6 +68,10 @@ const RecipeItem = styled.div`
 	@media ${breakpoints.tablet} {
 		flex: 0 0 30%;
 	}
+
+	@media ${breakpoints.desktopX} {
+		height: 23rem;
+	}
 `;
 
 const SRecipeList = styled.div`
@@ -85,6 +89,15 @@ const SRecipeList = styled.div`
 
 	@media ${breakpoints.desktop} {
 		grid-template-columns: repeat(5, 1fr);
+	}
+
+	@media ${breakpoints.desktop} {
+		grid-template-columns: repeat(5, 1fr);
+		gap: 2.5rem;
+	}
+
+	@media ${breakpoints.desktopX} {
+		margin-bottom: 9rem;
 	}
 `;
 

@@ -64,6 +64,13 @@ body{
 	@media ${breakpoints.desktop} {
 	
 	}
+
+	@media ${breakpoints.desktopX}{
+		:root{
+		--h:4rem;
+		--t:1.9rem;
+	}
+	}
 `;
 
 export const TextContent = styled.div`

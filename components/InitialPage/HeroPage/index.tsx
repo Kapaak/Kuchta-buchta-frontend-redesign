@@ -48,7 +48,13 @@ const BottomLine = styled.div`
 	}
 `;
 
-const IconWrapper = styled.div``;
+const IconWrapper = styled.div`
+	cursor: pointer;
+
+	&:active {
+		transform: scale(1.1);
+	}
+`;
 
 const HeadlineWrapper = styled.div`
 	margin-top: 7rem;

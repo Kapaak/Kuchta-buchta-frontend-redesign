@@ -11,4 +11,9 @@ export const Button = styled.button`
 	font-family: var(--second-font);
 	font-weight: 600;
 	letter-spacing: 0.1rem;
+	cursor: pointer;
+
+	&:active {
+		transform: scale(1.1);
+	}
 `;

@@ -51,6 +51,10 @@ const SHamburger = styled.div`
 			transition: all 0.5s ease;
 		}
 	}
+
+	&:active {
+		transform: scale(1.1);
+	}
 `;
 
 export default Hamburger;
