@@ -51,6 +51,7 @@ const FlexElement = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-bottom: 1rem;
 
 	${Headline} {
 		font-weight: 500;

@@ -33,6 +33,7 @@ const SRecipeTypes = styled.div`
 	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 1rem;
+	padding-bottom: 2rem;
 
 	@media ${breakpoints.tablet} {
 		flex-wrap: nowrap;

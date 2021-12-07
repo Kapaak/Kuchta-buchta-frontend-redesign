@@ -39,7 +39,7 @@ const SForm = styled.form`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	gap: 0.6rem;
+	gap: 1rem;
 
 	@media ${breakpoints.tablet} {
 		flex-direction: row;
