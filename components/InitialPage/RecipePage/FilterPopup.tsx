@@ -70,16 +70,18 @@ const FilterPopup = ({ active }: Props) => {
 };
 
 const SFilterPopup = styled.div<{ active: boolean }>`
-	display: ${({ active }) => (active ? "block" : "none")};
 	position: absolute;
+	display: ${({ active }) => (active ? "flex" : "none")};
+	flex-direction: column;
+	gap: 1rem;
 	top: 0px;
 	right: 0;
-	min-width: 12rem;
+	min-width: 13.5rem;
 	background-color: var(--col-5);
 	box-shadow: var(--shadow);
 	transform: translateY(30%);
 	border-radius: 1rem;
-	padding: 1rem;
+	padding: 1.5rem;
 	z-index: 9;
 
 	& > div {

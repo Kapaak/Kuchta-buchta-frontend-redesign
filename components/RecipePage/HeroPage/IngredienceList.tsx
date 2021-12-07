@@ -33,7 +33,6 @@ const SHeadline = styled(Headline)`
 `;
 
 const SIngredienceList = styled.ul`
-	margin: 2rem;
 	h1 {
 		color: var(--col-2);
 		font-weight: 600;
