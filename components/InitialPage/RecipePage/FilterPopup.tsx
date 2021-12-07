@@ -7,7 +7,8 @@ interface Props {
 }
 
 const FilterPopup = ({ active }: Props) => {
-	const { recipeList, setSecondaryFilter } = useContext(RecipeContext);
+	const { recipeList, activeRecipeType, setSecondaryFilter } =
+		useContext(RecipeContext);
 	const [selectedFilters, setSelectedFilters] = useState<Array<string>>([]);
 	const [filters, setFilters] = useState<Array<string>>([]);
 
@@ -41,6 +42,16 @@ const FilterPopup = ({ active }: Props) => {
 	}, []);
 
 	useEffect(() => {
+		const uncheckAllInputs = Array.from(
+			document.querySelectorAll(".check-input")
+		);
+		uncheckAllInputs.forEach((el: any) => {
+			el.checked = false;
+		});
+		setSelectedFilters([]);
+	}, [activeRecipeType]);
+
+	useEffect(() => {
 		setSecondaryFilter([...selectedFilters]);
 	}, [selectedFilters.length]);
 
@@ -49,7 +60,7 @@ const FilterPopup = ({ active }: Props) => {
 			{filters.map((s: any, index: number) => {
 				return (
 					<div onChange={e => handleSelect(e.currentTarget)} key={index}>
-						<input type="checkbox" id={s + "123"} />
+						<input type="checkbox" id={s + "123"} className="check-input" />
 						<label htmlFor={s + "123"}>{s}</label>
 					</div>
 				);
