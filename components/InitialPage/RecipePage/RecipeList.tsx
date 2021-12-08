@@ -52,6 +52,8 @@ const RecipeItem = styled.div`
 			font-size: var(--t);
 			font-weight: 600;
 			text-align: center;
+			flex: 0;
+			transition: all 0.5s;
 		}
 	}
 
@@ -63,6 +65,15 @@ const RecipeItem = styled.div`
 	img {
 		border-radius: 1rem 1rem 0 0;
 	}
+
+	/* &:hover {
+		a {
+			p {
+				flex: 1;
+				transition: all 0.5s;
+			}
+		}
+	} */
 
 	@media ${breakpoints.tablet} {
 		flex: 0 0 30%;

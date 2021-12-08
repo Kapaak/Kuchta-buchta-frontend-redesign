@@ -13,7 +13,7 @@ interface Props {
 const RecipeOptions = ({ recipeOptions }: Props) => {
 	return (
 		<SRecipeTypes>
-			{/* <SLine></SLine> */}
+			<SLine></SLine>
 			{recipeOptions?.map((recipe: RecipeOpt, index: number) => (
 				<RecipeOption key={index} recipeOpt={recipe} />
 			))}
@@ -22,10 +22,22 @@ const RecipeOptions = ({ recipeOptions }: Props) => {
 };
 
 const SLine = styled.div`
+	display: none;
 	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(20%);
 	width: 100%;
 	height: 4rem;
 	background-color: var(--col-2);
+
+	@media ${breakpoints.tablet} {
+		display: block;
+	}
+
+	@media ${breakpoints.tablet} {
+		transform: translateY(-50%);
+	}
 `;
 
 const SRecipeTypes = styled.div`
