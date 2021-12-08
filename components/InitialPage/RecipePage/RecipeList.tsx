@@ -16,7 +16,7 @@ const RecipeList = () => {
 			{recipeList?.map((r: any, i: number) => (
 				<RecipeItem key={i}>
 					<Link href={"/recept/" + r?.slug?.current}>
-						<a>
+						<a style={{ position: "relative" }}>
 							<Image
 								src={urlFor(r?.mainImage).url() as string}
 								alt={r?.title}

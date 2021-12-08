@@ -1,6 +1,7 @@
 //libraries
 import { FlexWrapper, MaxWidth } from "@/styles/customComponents";
 import styled from "styled-components";
+import Link from "next/link";
 
 const Footer = () => {
 	return (
@@ -9,7 +10,11 @@ const Footer = () => {
 				<FlexWrapper justify="center" align="center">
 					<h2>All rights reserved © 2021</h2>
 					<h1>kuchta buchta</h1>
-					<h2>created by Pavel Zapletal</h2>
+					<h2>
+						<Link href="https://pavelzapletal.cz/">
+							<a>created by Pavel Zapletal</a>
+						</Link>
+					</h2>
 				</FlexWrapper>
 			</MaxWidth>
 		</SFooter>
@@ -35,6 +40,11 @@ const SFooter = styled.footer`
 
 	h2:last-child {
 		color: var(--col-5);
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
 	}
 
 	${FlexWrapper} {
