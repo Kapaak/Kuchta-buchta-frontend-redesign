@@ -61,6 +61,7 @@ const LinkItem = styled.div`
 	color: var(--col-3);
 	font-weight: 600;
 	font-size: var(--h);
+	cursor: pointer;
 	z-index: 9;
 `;
 

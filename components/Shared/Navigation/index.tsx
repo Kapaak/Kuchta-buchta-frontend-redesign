@@ -1,9 +1,10 @@
 //libraries
+import styled from "styled-components";
 import { useState } from "react";
 //components
-import styled from "styled-components";
 import Hamburger from "./Hamburger";
 import MobileNavigation from "./MobileNavigation";
+import DesktopNavigation from "./DesktopNavigation";
 
 const Navigation = () => {
 	const [active, setActive] = useState(false);
@@ -11,6 +12,7 @@ const Navigation = () => {
 		<StyledNavigation>
 			<Hamburger setActive={setActive} />
 			<MobileNavigation setActive={setActive} active={active} />
+			<DesktopNavigation />
 		</StyledNavigation>
 	);
 };

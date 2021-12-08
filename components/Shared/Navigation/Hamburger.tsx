@@ -1,4 +1,5 @@
 //libraries
+import breakpoints from "@/styles/breakpoints";
 import styled from "styled-components";
 
 const Hamburger = ({ setActive }: any) => {
@@ -54,6 +55,10 @@ const SHamburger = styled.div`
 
 	&:active {
 		transform: scale(1.1);
+	}
+
+	@media ${breakpoints.desktop} {
+		display: none;
 	}
 `;
 

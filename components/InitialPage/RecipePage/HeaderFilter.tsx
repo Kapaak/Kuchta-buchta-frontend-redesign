@@ -65,6 +65,7 @@ const IconWrapper = styled.div`
 `;
 
 const FlexElement = styled.div`
+	position: relative;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
