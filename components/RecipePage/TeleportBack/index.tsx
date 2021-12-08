@@ -21,13 +21,20 @@ const STeleportBack = styled.div`
 	height: 100%;
 	width: 100%;
 	pointer-events: none;
+	cursor: pointer;
 
 	& > span {
 		position: absolute !important;
 		right: 1rem !important;
 		bottom: 1rem !important;
 		pointer-events: all;
-		transform: rotate(90deg);
+		transform: rotate(90deg) scale(1);
+	}
+
+	&:active {
+		& > span {
+			transform: rotate(90deg) scale(1.1);
+		}
 	}
 `;
 

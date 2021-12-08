@@ -25,6 +25,9 @@ const IngredienceList = ({ ingredience }: any) => {
 	);
 };
 
+// flex: 1 1 100%;
+//     width: 100%;
+
 const SHeadline = styled(Headline)`
 	color: var(--col-1);
 	text-align: left;

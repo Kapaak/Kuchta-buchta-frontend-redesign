@@ -39,6 +39,7 @@ const RecipeItem = styled.div`
 	border-radius: 1rem;
 	box-shadow: var(--shadow);
 	background-color: var(--col-5);
+	transition: all 0.3s ease;
 
 	a {
 		display: flex;
@@ -64,6 +65,11 @@ const RecipeItem = styled.div`
 
 	img {
 		border-radius: 1rem 1rem 0 0;
+	}
+
+	&:hover {
+		opacity: 0.77;
+		transition: all 0.5s ease;
 	}
 
 	/* &:hover {
