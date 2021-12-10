@@ -1,4 +1,5 @@
 import { RecipeContext } from "@/components/utils";
+import breakpoints from "@/styles/breakpoints";
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 
@@ -75,7 +76,7 @@ const SFilterPopup = styled.div<{ active: boolean }>`
 	display: ${({ active }) => (active ? "flex" : "none")};
 	flex-direction: column;
 	gap: 1rem;
-	top: 0px;
+	top: 0;
 	right: 0;
 	min-width: 13.5rem;
 	background-color: var(--col-5);
@@ -89,6 +90,10 @@ const SFilterPopup = styled.div<{ active: boolean }>`
 		display: flex;
 		align-items: center;
 		gap: 0.8rem;
+	}
+
+	@media ${breakpoints.desktopX} {
+		top: 1rem;
 	}
 `;
 

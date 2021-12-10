@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
 	--col-3:#B0235F;
 	--col-4:#F8F8F8;
 	--col-5:#FDFDFD;
+	--col-6:#B0B0B0;
 
 	--mh:7rem;
 	--sh:3rem;

@@ -6,6 +6,7 @@ import { Headline } from "@/styles/customComponents";
 import FilterPopup from "./FilterPopup";
 //utilities
 import { RecipeContext } from "@/components/utils";
+import breakpoints from "@/styles/breakpoints";
 
 const HeaderFilter = () => {
 	const { activeRecipeType } = useContext(RecipeContext);
@@ -27,8 +28,10 @@ const HeaderFilter = () => {
 		<FlexElement>
 			<Overlay active={active} onClick={() => setActive(false)} />
 			<Headline>{recipeTypeWithDiacritics()}</Headline>
-			<IconWrapper onClick={() => setActive(prev => !prev)}>
+			<IconWrapper active={active} onClick={() => setActive(prev => !prev)}>
 				<img src="/icons/filter-icon.svg" alt="filter icon" />
+				<p>filtruj podle</p>
+				<img src="/icons/arrow-down.svg" alt="filter icon" />
 			</IconWrapper>
 			<FilterPopup active={active} />
 		</FlexElement>
@@ -46,7 +49,7 @@ const Overlay = styled.div<{ active: boolean }>`
 	z-index: 9;
 `;
 
-const IconWrapper = styled.div`
+const IconWrapper = styled.div<{ active: boolean }>`
 	position: relative;
 	display: flex;
 	background-color: #eeeeee;
@@ -54,13 +57,51 @@ const IconWrapper = styled.div`
 	border-radius: 0.5rem;
 	box-shadow: var(--shadow);
 	cursor: pointer;
+	gap: 1rem;
+	z-index: 9;
 
-	img {
+	img:first-child {
 		width: 1.5rem;
+	}
+
+	img:last-child {
+		display: none;
+		transform: ${({ active }) => (active ? "rotate(180deg)" : "rotate(0deg)")};
+		width: 1.3rem;
+		transition: all 0.5s ease;
+	}
+
+	p {
+		display: none;
+		font-size: 1.5rem;
+		font-weight: 500;
 	}
 
 	&:active {
 		transform: scale(1.1);
+	}
+
+	@media ${breakpoints.tabletX} {
+		padding: 0.8rem 1.3rem;
+		background-color: var(--col-5);
+		border: 1px solid var(--col-6);
+		box-shadow: none;
+
+		&:active {
+			transform: scale(1);
+		}
+
+		img:first-child {
+			display: none;
+		}
+
+		img:last-child {
+			display: block;
+		}
+
+		p {
+			display: block;
+		}
 	}
 `;
 
