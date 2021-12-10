@@ -38,6 +38,13 @@ const SFlexWrapper = styled(FlexWrapper)`
 		gap: 6rem;
 		margin-top: 11rem;
 	}
+
+	@media ${breakpoints.desktop} {
+		margin-top: 14rem;
+	}
+	@media ${breakpoints.desktopX} {
+		margin-top: 18rem;
+	}
 `;
 
 const SHeadline = styled(Headline)`

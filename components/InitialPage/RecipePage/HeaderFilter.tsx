@@ -118,9 +118,14 @@ const FlexElement = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 1rem;
+	margin-top: 2rem;
 
 	${Headline} {
 		font-weight: 500;
+	}
+
+	@media ${breakpoints.desktop} {
+		margin-top: 5rem;
 	}
 `;
 export default HeaderFilter;

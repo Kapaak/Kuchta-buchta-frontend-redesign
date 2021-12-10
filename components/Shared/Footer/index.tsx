@@ -2,6 +2,7 @@
 import { FlexWrapper, MaxWidth } from "@/styles/customComponents";
 import styled from "styled-components";
 import Link from "next/link";
+import breakpoints from "@/styles/breakpoints";
 
 const Footer = () => {
 	return (
@@ -49,6 +50,14 @@ const SFooter = styled.footer`
 
 	${FlexWrapper} {
 		gap: 1.5rem;
+	}
+
+	@media ${breakpoints.desktop} {
+		margin-top: 10rem;
+	}
+
+	@media ${breakpoints.desktop} {
+		margin-top: 14rem;
 	}
 `;
 
