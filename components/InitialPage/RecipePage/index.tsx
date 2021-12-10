@@ -10,7 +10,7 @@ const RecipePage = () => {
 			<MaxWidth>
 				<FlexWrapper>
 					<HeaderFilter />
-					<Form />
+					<Form className="form-mobile" />
 				</FlexWrapper>
 				<RecipeList />
 			</MaxWidth>

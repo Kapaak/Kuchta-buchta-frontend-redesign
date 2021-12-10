@@ -7,6 +7,7 @@ import FilterPopup from "./FilterPopup";
 //utilities
 import { RecipeContext } from "@/components/utils";
 import breakpoints from "@/styles/breakpoints";
+import Form from "./Form";
 
 const HeaderFilter = () => {
 	const { activeRecipeType } = useContext(RecipeContext);
@@ -28,6 +29,7 @@ const HeaderFilter = () => {
 		<FlexElement>
 			<Overlay active={active} onClick={() => setActive(false)} />
 			<Headline>{recipeTypeWithDiacritics()}</Headline>
+			<Form className="form-desktop" />
 			<IconWrapper active={active} onClick={() => setActive(prev => !prev)}>
 				<img src="/icons/filter-icon.svg" alt="filter icon" />
 				<p>filtruj podle</p>
@@ -52,6 +54,7 @@ const Overlay = styled.div<{ active: boolean }>`
 const IconWrapper = styled.div<{ active: boolean }>`
 	position: relative;
 	display: flex;
+	align-items: center;
 	background-color: #eeeeee;
 	padding: 0.8rem;
 	border-radius: 0.5rem;
@@ -102,6 +105,10 @@ const IconWrapper = styled.div<{ active: boolean }>`
 		p {
 			display: block;
 		}
+	}
+
+	@media ${breakpoints.desktop} {
+		height: 4.5rem;
 	}
 `;
 

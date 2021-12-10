@@ -93,7 +93,7 @@ const SFilterPopup = styled.div<{ active: boolean }>`
 	}
 
 	@media ${breakpoints.desktopX} {
-		top: 1rem;
+		top: 1.3rem;
 	}
 `;
 
