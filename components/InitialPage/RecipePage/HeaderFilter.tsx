@@ -76,7 +76,7 @@ const IconWrapper = styled.div<{ active: boolean }>`
 
 	p {
 		display: none;
-		font-size: 1.5rem;
+		font-size: 1.6rem;
 		font-weight: 500;
 	}
 
