@@ -74,7 +74,7 @@ export const RecipeProvider = ({ recipes, children }: any) => {
 		const arr = active.filter((val: any) => {
 			let isPassing = true;
 			arrayOfTypes.map((a: string) => {
-				const inc = val.category.includes(a);
+				const inc = val?.category?.includes(a);
 				if (!inc) isPassing = false;
 			});
 
