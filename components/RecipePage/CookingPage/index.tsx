@@ -20,7 +20,7 @@ const CookingPage = ({ body }: Props) => {
 						serializers={{
 							//@ts-ignore
 							list: (props: any) => {
-								return <ul>{props.children}</ul>;
+								return <ul>{props?.children}</ul>;
 							},
 							// text: (props: any) => {
 							// 	return <Text>{props.children}</Text>;

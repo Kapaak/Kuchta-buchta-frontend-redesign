@@ -1,5 +1,5 @@
 //libraries
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import { urlFor } from "sanity";
@@ -29,11 +29,11 @@ const RecipeOption = ({ recipeOpt }: Props) => {
 			}
 		>
 			<Image
-				src={urlFor(recipeOpt.img).url() as string}
-				alt={recipeOpt.name}
+				src={urlFor(recipeOpt?.img).url() as string}
+				alt={recipeOpt?.name}
 				layout="fill"
 			/>
-			<h3>{recipeOpt.name}</h3>
+			<h3>{recipeOpt?.name}</h3>
 		</StyledItem>
 	);
 };

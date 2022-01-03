@@ -17,7 +17,7 @@ const FilterPopup = ({ active }: Props) => {
 		const categoriesArray: any[] = [];
 
 		recipeList.map((r: any, i: number) => {
-			if (r.category.length > 0)
+			if (r?.category?.length > 0)
 				r.category.map((c: any, index: number) => {
 					categoriesArray.push(c);
 				});
